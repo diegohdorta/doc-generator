@@ -1,6 +1,9 @@
+# NXP Template for Documentation using AsciiDoctor
+
 To build use the following commands:
 
 ```bash
+$ apt-get install ruby
 $ gem install bundler
 $ bundle install
 ```
