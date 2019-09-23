@@ -31,6 +31,8 @@ class NXPTemplateGenerator(object):
         doc.write(":toclevels: 5\n")
         doc.write(":source-highlighter: coderay\n")
         doc.write(":numbered:\n")
+        doc.write(":icons: font\n")
+        doc.write(":autofit-option:\n")
         doc.write("include::chapters/1-chapter.adoc[]\n")
         doc.close()
 
