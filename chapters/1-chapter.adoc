@@ -1,28 +1,236 @@
 // Copyright (c) 2019, NXP Semiconductors
-[[chapter]]
+[[settings]]
 :numbered:
-== Introduction
+== Setting Up the Environment
 
-=== Hello World
+This document explains the basic steps to start with _embedded systems_ approaching
+from how to install the required tools of software to communicate with hardware to
+the elements of an _embedded GNU/Linux system_: https://www.denx.de/wiki/U-Boot[_Bootloader_], https://www.kernel.org/[_Kernel_] and a https://buildroot.org/[_Root File System_]. 
 
-Here's how you say "`Hello, World!`" in `C`:
+[IMPORTANT%autofit]
+====
+The procedures described in this document target a _GNU/Linux_ (`Ubuntu 18.04.3 LTS`).
+====
 
-. Create a basic code:
+=== Programming Tools
+
+A _toolchain_ is the set of tools that compiles source codes generating executables
+that can run on a specific target device. It includes a _compiler_, _linker_, _run-time
+libraries_ and might also include a _debugger_. The toolchain must be able to compile
+codes written in _Assembly_, _C_ and _C++_ since these are the most common languages used
+in the base open source source packages.
+
+==== GCC Arm GNU/Linux Toolchain
+
+. Install a _Graphical Package Management_ and open it:
 +
-[source,c]
+_On Host GNU/Linux PC Terminal_
++
+[source,bash]
 ----
-#include <stdio.h>
+$ apt-get install synaptic // <1>
+$ synaptic // <2>
+----
+<1> using _apt-get_ package manager to install _synaptic_ tool.
+<2> running _synaptic_ tool.
++
+. Choose the following _toolchain_ and install it:
++
+* **gcc-arm-linux-gnueabi**
++
+. To export the _cross-compiler_, run the following environment variables:
++
+_On Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ export ARCH=arm // <1>
+$ export CROSS_COMPILE=/usr/bin/arm-linux-gnueabi- // <2>
+----
+<1> exporting environment variable for defining the platform.
+<2> exporting environment variable for defining the cross-compiler binary.
++
+[CAUTION%autofit]
+====
+This environment variables are only set for this shell and its child processes.
+If the shell/terminal is closed and starts a new one, these settings will not be retained.
+====
++
+. To make it easier, create a file as follows:
++
+_On Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ touch toolchain-variables.sh
+$ echo "export ARCH=arm" >> toolchain-variables.sh
+$ echo "export CROSS_COMPILE=/usr/bin/arm-linux-gnueabi-" >> toolchain-variables.sh
+$ chmod +x toolchain-variables.sh
+$ ln -s toolchain-variables /bin/awesome
+----
++
+[CAUTION%autofit]
+====
+You need root privileges (sudo) to use `ln` command.
+====
++
+. Before compiling, run the following command:
++
+_On Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ source awesome
+----
 
-int main(void)
-{
-    printf("Hello World!\n");
-    return 0;
-}
-----
+
+==== NXP Yocto Toolchain
 
 <<<
 
-== How-to
+=== Control Version
 
-.Captured Flash Card
-image::chapters/media/linux.png[alt=.Captured Flash Card, pdfwidth=80%, title-align=center, align=center]
+==== Git
+
+
+. Install all the _git_ packages:
++
+[source,bash]
+----
+$ apt-get install git-all
+----
++
+. Open the _gitconfig_ file located at home folder:
++
+[source,bash]
+----
+$ vi ~/gitconfig
+----
++
+. Add the following information and save it:
+[source,bash]
+----
+[user]
+    name = Your Name
+    email = Your e-mail
+[sendemail]
+    smtpserver = remotesmtp.freescale.net
+    smtpserverport = 25
+----
++
+
+===== Git Patch
+
+<<<
+
+=== Serial Communication
+
+==== Minicom
+
+. Open a terminal on the _host GNU/Linux PC_, then install the `Minicom` tool:
++
+_On Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ apt-get install minicom
+----
++
+. Removing _root privileges_:
++
+_On Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ adduser $USER dialout
+$ chgrp dialout /etc/minicom/minirc.dft
+$ chmod g+rw /etc/minicom/minirc.dft
+----
++
+[CAUTION%autofit]
+====
+Only use this with wisdom
+====
++
+. Go to `serial port setup` and change the settings to:
++
+_On Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ minicom -s
+----
++
+* Serial Device as: `/dev/ttyUSB0`
+* Bps/Par/Bits as: `115200 8N1`
+* Hardware Flow Control: `No`
+* Software Flow Control: `No`
++
+. Then, choose `save setup as dfl`, then `exit`.
++
+. Connect the serial cable to the _i.MX Board_ and to the _host GNU/Linux PC_, then:
++
+_On Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ minicom
+----
++
+
+==== Screen
+
+==== Grab Serial
+
+
+<<<
+
+=== Other Tools
+
+==== Make Menuconfig
+==== GParted
+==== USB Tool
+==== TFTP
+
+<<<
+
+=== Flashing SD Card
+
+[source,bash]
+----
+$ dd if=<image>.sdcard of=/dev/<device_id> status=progress bs=1M && sync
+----
+
+[CAUTION%autofit]
+====
+You need root privileges (sudo) to use `dd` for writing to `/dev/`.
+====
+
+[IMPORTANT%autofit]
+====
+_<device_id>_ refers to the _SD Card_ device. Check it using `lsblk` command.
+====
+
+<<<
+
+== Starting with a Board
+
+=== Bootloader
+=== Kernel
+
+=== File System
+
+<<<
+
+== Starting with Yocto
+
+<<<
+
+== Starting with Video
+
+<<<
+
+== Starting with eIQ Machine Learning
+
+
+
