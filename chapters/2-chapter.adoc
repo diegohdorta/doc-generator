@@ -2,24 +2,37 @@
 
 == GETTING STARTED
 
-This library and documentation are totally experimental, providing no warranty
+This library and documentation are **totally experimental**, providing **no warranty**
 of a full functionatlly during these beta releases. The next steps were
-tested under the `GNU/Linux Ubuntu` distribution 18.04.
+tested under the _GNU/Linux Ubuntu_ distribution _18.04.03 LTS_.
 
-=== Prerequisites Packages
+=== LICENSE
 
-Robin Bird requires a few dependencies as well as a graphical interfaces library
+_Copyright &#169; 2019 NXP Semiconductors_
+
+_Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:_
+
+_The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software._
+
+_THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE._
+
+=== Prerequisites
+
+_Robin Bird_ requires a few dependencies as well as a graphical interfaces library
 and library for image manipulation. This list of dependencies may increase over time:
 
-* https://www.gtkmm.org/en/[gtkmm - C++ Interfaces for GTK+ and GNOME]
+* https://www.gtkmm.org/en/[gtkmm - _{cpp}_ Interfaces for GTK+ and GNOME]
 * http://www.libpng.org/pub/png/libpng.html[libpng - C functions for handling PNG images]
 
 ==== Installing Packages
 
-These steps are required for using `Robin Bird` in a local machine for a quickly
-developing and debugging work of the library. On `x86` platform, install the
-following requirements:
+These steps are required for using _Robin Bird_ in a local machine for a quickly
+developing and debugging work of the library.
 
+. On `x86` platform, install the following requirements:
++
+_Host GNU/Linux PC Terminal_
++
 [source,bash]
 ----
 $ apt-get install g++ libgtkmm-3.0-dev libpng++-dev
@@ -44,7 +57,7 @@ $ git checkout robin-bird-beta_v1.0.0
 
 ==== Robin Bird Cmake
 
-Robin Bird uses https://cmake.org/[cmake] for a easy compilation and maintenance.
+_Robin Bird_ uses https://cmake.org/[cmake] for a easy compilation and maintenance.
 Create a build project directory, where the binaries are placed after compiling:
 
 [source,bash]
@@ -74,7 +87,7 @@ $ cmake .. -DROBIN_BIRD=ON \
 $ make
 ----
 
-Install the binaries and dynamic link the `Robin Bird`:
+Install the binaries and dynamic link the _Robin Bird_:
 
 [NOTE]
 ====

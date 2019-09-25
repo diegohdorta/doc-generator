@@ -2,7 +2,7 @@
 
 == Robin Bird Overview
 
-Check if `Robin Bird` is installed by:
+Check if _Robin Bird_ is installed by:
 
 [source,bash]
 ----

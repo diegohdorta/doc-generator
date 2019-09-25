@@ -1,4 +1,4 @@
-= Getting Started with Robin Bird
+= Robin Bird&#8482; Machine Learning Library
 :title-logo-image: image::themes/media/nxplogo.png[pdfwidth=40%, align=right]
 © 2019 NXP Semiconductor, Inc. All rights reserved.
 REV 1.0, September 25, 2019

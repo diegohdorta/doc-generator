@@ -2,28 +2,28 @@
 
 == INTRODUCTION
 
-Robin Bird is a small and flexible machine learning library, written in C++, that
-aims to provide simple and extensible implementations of machine learning algorithms
-for solving real world problems on embedded systems. Robin Bird provides these
-algorithms as simple command-line programs, Python bindings, and C++ classes which
+_Robin Bird&#8482;_ is a small _Machine Learning_ library, written in _{cpp}_, that
+aims to provide simple and extensible implementations of _Machine Learning_ algorithms
+for solving real world problems on embedded systems. _Robin Bird_ provides these
+algorithms as simple command-line programs, Python bindings, and _{cpp}_ classes which
 can be used and integrated into low to medium-scale machine learning solutions.
 
 === Artificial Intelligence and Machine Learning
 
 ==== Overview
 
-Artificial Intelligence (AI) brings to mind science fiction stories about robots
-and talking machines. Some might even relate Machine Learning (ML) to advanced
+_Artificial Intelligence_ (_AI_) brings to mind science fiction stories about robots
+and talking machines. Some might even relate _Machine Learning_ (_ML_) to advanced
 robots bent on destroying the world. Today this technology is more about
 building intelligent systems with decision making abilities.
-Think about ML as a sub-field of AI that can analyze large amounts of data and
+Think about _ML_ as a sub-field of _AI_ that can analyze large amounts of data and
 automate analytical models. This branch of AI was born from pattern recognition
 and the theory that computer can learn, and having the ability to independently
 draw knowledge from experience.
 
 ==== Historically vs Present Time
 
-Deep Blue computer, that could play chess in a high level championship but
+The https://pt.wikipedia.org/wiki/Deep_Blue[Deep Blue Computer] could play chess in a high level championship but
 that's all it could do. Presently, large data centers and huge storage capacities
 make things that were believed for years to be distant concepts possible.
 Writing a program to play tic-tac-toe would require a huge number of specific
@@ -37,7 +37,7 @@ manage. The rules do not need to be written by a human. With the right
 instructions, the computer can learn to create its own decision trees.
 
 
-In its basic form, ML combined with hardware-accelerated embedded systems can
+In its basic form, _ML_ combined with hardware-accelerated embedded systems can
 reach significant improvements in image and video recognition. The reason is
 a certain level of performance embedded systems have reached over the last
 few years.
@@ -50,7 +50,7 @@ This field boils down on spending time to write many lines of code that
 eventually solve a problem by applying some type of intelligent algorithm. For
 instance, some smart houses have lighting systems which automatically turn on
 and off based on whether anyone is present in the room. This idea does not
-amuse, but thinking about this, consider that this system is actually making
+amuse, but thinking about this consider that this system is actually making
 independent decisions.
 
 ==== Robin Bird Algorithm
@@ -60,20 +60,20 @@ are being developed and will get it all quickly. Not just that, several
 types of algorithms for different issues are being created every day and
 embedded systems are fully prepared to completely embrace this technology
 replacing the work of an human being.
-Machine Learning is the study of algorithms that learn from examples and
-experiences instead of relying on hard-coded rules. Robin Bird solves real
+_ML_ is the study of algorithms that learn from examples and
+experiences instead of relying on hard-coded rules. _Robin Bird_ solves real
 world problems using only math and object-oriented programming, including
 an easily extensible implementation of object-oriented classes for enthusiast
 developers.
 
 For instance, think about the following situation where it is required to write
 code to recognize two types of fruit or cars or animals. This is difficult
-without Machine Learning. Robin Bird can make predictions based on a huge
+without _ML_. _Robin Bird_ can make predictions based on a huge
 amount of data just by recognizing aspects and relations of patterns.
 Problems like image, speech and character recognition belongs to a
 category that is called Classification problems, which a certain given input, the
-machine should be able to select a category where it belongs and labeled.
-Robin Bird release includes algorithms for recognition problems. It can be
-integrated with machine learning solutions from low to medium scale.
+machine should be able to select a category where it belongs and labeled. 
+_Robin Bird_ release includes algorithms for recognition problems. It can be
+integrated with _ML_ solutions from low to medium scale.
 
 <<<
