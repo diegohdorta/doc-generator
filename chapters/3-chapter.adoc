@@ -77,6 +77,6 @@ Run the example:
 $ ./a.out
 ----
 
-image::assets/sample.gif[sample]
+image::chapters/media/sample.gif[sample]
 
 

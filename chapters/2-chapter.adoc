@@ -6,6 +6,8 @@ This library and documentation are **totally experimental**, providing **no warr
 of a full functionatlly during these beta releases. The next steps were
 tested under the _GNU/Linux Ubuntu_ distribution _18.04.03 LTS_.
 
+image::chapters/media/diagram.png[sample]
+
 === LICENSE
 
 _Copyright &#169; 2019 NXP Semiconductors_
