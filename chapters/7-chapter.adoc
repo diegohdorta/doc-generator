@@ -1,0 +1,64 @@
+// Diego Dorta <diego.dorta@nxp.com>
+[[tflite]]
+== Face Recognition using TensorFlow Lite
+
+This {EIQ_FACE_COMMUNITY}[application] uses Haar Feature-based Cascade Classifiers for real time
+face detection. The pre-trained {HAARCASCADE}[Haar Feature-based Cascade Classifiers] for face
+is already contained in {HAARCASCADE_OPENCV}[OpenCV]. 
+
+[[prepare_face]]
+=== Compiling the Face Recognition Application
+
+. Compile the {FACE_DEMO_LINK}[Face Recognition] application on _host GNU/Linux PC_
+(it can be compiled on i.MX):
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ cd ~/Desktop/files/face // <1>
+$ source /opt/fsl-imx-internal-xwayland/4.19-thud/environment-setup-aarch64-poky-linux // <2>
+$ make // <3>
+----
+<1> entering the `face` folder where is located the application.
+<2> execute the toolchain to set up the environment variables.
+<3> running make to compile the application.
++
+. Copy the binary and the pre-trained Haar Feature-based Cascade to the _i.MX board_:
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ scp FaceRecognition haarcascade_frontalface_alt.xml root@${IMX_INET_ADDR}:/opt/face // <1>
+----
+<1> copy the files to the board thru network.
+
+[[run_face]]
+=== Running the Face Recognition Application (inst)
+
+The MobileFaceNets application is re-trained with a smaller batch size and input
+size to get a higher performance on a _host GNU/Linux PC_. The trained model is
+loaded as a source file in this demo.
+
+. **Run the application**:
++
+_On i.MX Board Minicom Terminal execute the following commands:_
++
+[%autofit]
+----
+root@imx8mmevk:/opt/face# ./FaceRecognition -c 0 -h 0.85 // <1>
+----
+<1> running the demo where `-c` is used to specify the camera index,
+`0` means the MIPI/USB camera is mounted on `/dev/video0`, and `-h` is a threshold for the prediction score.
++
+. When the face is detected, enter the name using keyboard. Then, click on `Add new person`.
+
+[NOTE]
+====
+Once new faces are added, it will create a folder named `data` in current
+directory. If you want to remove the new face from the data set, just delete
+it in `data`.
+====
+
+<<<

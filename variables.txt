@@ -1,0 +1,36 @@
+// Diego Dorta <diego.dorta@nxp.com>
+// Marco Franchi <marco.franchi@nxp.com>
+// Vanessa Maegima <vanessa.maegima@nxp.com>
+
+:IMAGE_DIR: https://nxp1.sharepoint.com/:f:/s/SE-AITEC/EqBIdWJuS8RPiXQXS4DCG8UB5bOOp0er94YAvFXePZ6ScA?e=oPGMoL
+:IMAGE_WINDOWS_DIR: https://nxp1.sharepoint.com/:u:/s/SE-AITEC/EWzVYl2E_VBBv-1kx-IblCEBz8PQ0m0i6Rk154XtIUBUEQ?e=cgeJwA
+:EIQ_DOC: https://community.nxp.com/servlet/JiveServlet/download/343013-7-443936/eIQv1_EAR1.pdf
+:ARMNN_EXAMPLE: https://nxp1.sharepoint.com/:f:/s/SE-AITEC/ErVl8R7V0jxCsGP-qUyRzWYBYcc0nu-xtm1UPYJcRGa5tg?e=1qdWwO
+:LABELS: https://github.com/ARM-software/armnn/blob/branches/armnn_18_11/tests/TfLiteMobilenetQuantized-Armnn/labels.txt
+:OPENCV_IMAGES: https://github.com/opencv/opencv/tree/master/samples/data
+:GETTING_STARTED: https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/i.mx-applications-processors/i.mx-8-processors/evaluation-kit-for-thebr-i.mx-8m-mini-applications-processor:8MMINILPD4-EVK?tab=In-Depth_Tab
+:CAFFE: https://caffe.berkeleyvision.org/
+:TENSORFLOW: https://www.tensorflow.org/
+:MNIST: http://yann.lecun.com/exdb/mnist/
+:SSD_DETECTOR: https://arxiv.org/abs/1512.02325
+:SSD_CAFFE: https://github.com/weiliu89/caffe/tree/ssd
+:INCEPTION: https://github.com/tensorflow/models/tree/master/research/inception
+:TOOLCHAIN: https://nxp1.sharepoint.com/:u:/s/SE-AITEC/EWG4sZDliQZJqpuRrhSJGlUBU3vD3omT5Vp6dDcbfPmDGA?e=rxSLWo
+:MNIST_DEMO_LINK: https://source.codeaurora.org/external/imxsupport/eiq_sample_apps/tree/examples-armnn/handwritten_digit
+:OPENCV_DEMO_LINK: https://source.codeaurora.org/external/imxsupport/eiq_sample_apps/tree/examples-opencv/obj_recognition
+:ARMNN_DEMO_LINK: https://source.codeaurora.org/external/imxsupport/eiq_sample_apps/tree/examples-armnn/obj_recognition
+
+
+
+:FACE_DEMO_LINK: https://source.codeaurora.org/external/imxsupport/eiq_sample_apps/tree/examples-tflite/face_recognition
+:HAARCASCADE: https://source.codeaurora.org/external/imxsupport/eiq_sample_apps/tree/examples-tflite/face_recognition/src/haarcascade_frontalface_alt.xml
+:HAARCASCADE_OPENCV: https://docs.opencv.org/4.0.1/d7/d8b/tutorial_py_face_detection.html
+:EIQ-ML-DOCUMENT: https://www.nxp.com/docs/en/nxp/user-guides/UM11226.pdf
+:EIQ-SAMPLE-APPS: https://source.codeaurora.org/external/imxsupport/eiq_sample_apps/
+:EIQ_COMMUNITY: https://community.nxp.com/community/eiq
+:EIQ_FACE_COMMUNITY: https://community.nxp.com/docs/DOC-343740
+:EIQ_DNN_COMMUNITY: https://community.nxp.com/docs/DOC-343739
+:EIQ_DIGITS_COMMUNITY: https://community.nxp.com/docs/DOC-343738
+:EIQ_ARMNN_COMMUNITY: https://community.nxp.com/docs/DOC-343786
+:OPENCV_SITE: https://opencv.org/
+

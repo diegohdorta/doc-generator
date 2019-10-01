@@ -1,0 +1,244 @@
+// Diego Dorta <diego.dorta@nxp.com>
+// Vanessa Maegima <vanessa.maegima@nxp.com>
+// Marco Franchi <marco.franchi@nxp.com>
+[[preparing_board]]
+== Preparing the i.MX 8MM EVK Board
+
+The following section describes the steps to boot the _i.MX 8MM EVK_.
+
+.i.MX 8MM EVK Board Top View
+image::chapters/media/imx8mmevk_front.png[alt=.Top view i.MX 8MM EVK board, pdfwidth=60%, title-align=center, align=center]
+
+.i.MX 8MM EVK Board Back View
+image::chapters/media/imx8mmevk_back.png[alt=.Back view i.MX 8MM EVK board, pdfwidth=60%, title-align=center, align=center]
+
+. Connect the _IMX-MIPI-HDMI Daughter Card_ to the _Mini-SAS Cable_ and into connector
+labeled _DSI MIPI_ (`J801`) and then connect the _HDMI Monitor Cable_ into it.
++
+.IMX-MIPI-HDMI Daughter Card
+image::chapters/media/imx-mipi-hdmi.png[alt=.IMX-MIPI-HDMI daughter card, pdfwidth=25%, title-align=center, align=center]
++
+. Connect the _MINISASTOCSI Camera Daughter Card_ to the _Mini-SAS Cable_ and into connector
+labeled _CSI MIPI_ (`J802`).
++
+.MINISASTOCSI Camera Daughter Card
+image::chapters/media/minisas-to-csi.png[alt=.MINISASTOCSI Camera Daughter Card, pdfwidth=35%, title-align=center, align=center]
++
+. Connect the _micro-B_ end of the supplied _USB Cable_ into _Debug UART_ port `J901`.
++
+. Connect the other end of the cable to the _host GNU/Linux PC_.
++
+. Insert the _MicroSD Card_ into the _MicroSD Card slot_ `J701` in the back board side.
+To boot the board from the _MicroSD Card_, change the _Boot Switches_ `SW1101`
+and `SW1102` (Figure 5) according to the table below:
++
+.Boot Device Setting
+[width="60%",cols="15,15,15",options="header", title-align=center, align=center]
+|=========================================================
+|BOOT Device    |SW1101     |SW1102
+|MicroSD/uSDHC2 |0110110010 |0001101000
+|=========================================================
++
+.Boot Device Settings
+image::chapters/media/boot_device_settings.png[alt=.Boot Device Settings, pdfwidth=30%, title-align=center, align=center]
++
+. Connect the _Power Supply Cable_ to the _Power Connector_ `J302` and power **on** the
+board by flipping the switch `SW101`.
+
+[TIP]
+====
+For more details: {GETTING_STARTED}[i.MX 8MM EVK  Getting Started].
+====
+
+[%hardbreaks]
+[%hardbreaks]
+[%hardbreaks]
+'''
+
+[TIP]
+====
+Nick Bostrom - Machine intelligence is the last invention that humanity will ever need to make.
+====
+
+// =============================================================================
+// =============================================================================
+// =============================================================================
+<<<
+
+== Getting Started with the Prerequisites
+
+=== Minicom
+
+`Minicom` was previous installed and configured to the _host GNU/Linux PC_.
+To learn how to communicate with the board through serial, **follow** the <<start_minicom>>.
+
+==== Configure the Minicom (configured)
+
+. Open a terminal on the _host GNU/Linux PC_, then:
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ minicom -s // <1>
+----
+<1> Open the `Minicom` settings.
++
+. Go to `serial port setup` and change the settings to:
++
+* Serial Device as: `/dev/ttyUSB1`
+* Bps/Par/Bits as: `115200 8N1`
+* Hardware Flow Control : `No`
+* Software Flow Control : `No`
++
+. Then choose `Save setup as dfl`, then `exit`.
+
+[[start_minicom]]
+==== Communicate with the i.MX Board
+
+. Connect the serial cable to the _i.MX board_ and the _host GNU/Linux PC_,
+then:
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ minicom // <1>
+----
+<1> Open `Minicom` with the default settings.
++
+. Turn the target board power switch to **on**, when it reaches the login prompt, enter: `root`.
++
+.Prompt log in
+image::chapters/media/login-prompt.png[alt=.Prompt log in, pdfwidth=50%, title-align=right, align=center]
+
+[TIP]
+====
+`Minicom` is just one serial console communication, you can try others at home.
+====
+
+<<<
+
+=== Toolchain Installation (inst)
+
+The `4.19` toolchain must be installed to _cross-compile_ the applications in the _host GNU/Linux PC_.
+
+. Open a terminal on the _host GNU/Linux PC_, then:
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ cd ~/Desktop/files/toolchain // <1>
+$ chmod +x fsl-imx-internal-xwayland-glibc-x86_64-test-internal-qt5-aarch64-toolchain-4.19-thud.sh // <2>
+----
+<1> entering the `toolchain` folder where is located the cross-compiler.
+<2> attributing execution permission to the toolchain.
++
+. Install the toolchain **accepting** all the **default settings** and enter the password: `123456`
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ sh ./fsl-imx-internal-xwayland-glibc-x86_64-test-internal-qt5-aarch64-toolchain-4.19-thud.sh // <1>
+---- 
+<1> running the toolchain to be installed.
+
+[NOTE]
+====
+This toolchain is used to compile the `{cpp}` examples (_face_ and _digits_).
+====
+
+=== Network Configuration
+
+This step explains how to establish a _host GNU/Linux PC_ and _i.MX board_ network
+connection.
+
+. Connect the Ethernet cable to the _i.MX board_ and the _host GNU/Linux PC_.
++
+The **_i.MX board_** is configured with a static IP: `**192.168.0.100**`
++
+The **_host GNU/Linux PC**_ is configured with a static IP: `**192.168.0.200**`
++
+. Export the _i.MX board_ IP to transfer the files in the next steps:
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ IMX_INET_ADDR=192.168.0.100 // <1>
+$ export IMX_INET_ADDR // <2>
+----
+<1> creating an environment variable to hold the board IP
+<2> exporting this environment variable.
+
+[CAUTION]
+====
+This environment variable will only be set for this shell and its child processes.
+If the shell/terminal is closed and starts a new one, this setting won't be retained.
+====
+
+// =============================================================================
+// =============================================================================
+// =============================================================================
+<<<
+
+=== Flashing SD Card (flashed)
+
+The provided SD Card is flashed with an image built
+following the {EIQ-ML-DOCUMENT}[eIQ Machine Learning Software].
+
+. **IF** you want to learn how to flash the image to the SD Card, follow the next steps:
++
+[CAUTION]
+====
+You need root privileges (sudo) to use `dd` for writing to `/dev/sd<x>`.
+====
++
+[IMPORTANT]
+====
+**_<x>_** refers to the SD Card device. You can check it using `lsblk` command.
+====
++
+_On host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ cd ~/Desktop/files/image // <1>
+$ bunzip2 -f eIQ-4.19-Irvine-Hands-on-image.sdcard.bz2 // <2>
+$ dd if=eIQ-4.19-Irvine-Hands-on-image.sdcard of=/dev/sd<x> status=progress bs=1M && sync // <3>
+----
+<1> entering to the `image` folder where is located the built image.
+<2> decompressing the built image.
+<3> writing the built image to the SD Card.
+
+[NOTE]
+====
+**The SD Card image has all the required files to run the applications.**
+====
+
+=== Home Readings
+
+Here are a few documents to read at home and learn more about this training:
+
+[TIP]
+====
+. {EIQ-ML-DOCUMENT}[eIQ Machine Learning Software]
+. {EIQ-SAMPLE-APPS}[eIQ Sample Apps Repository]
+. {EIQ_COMMUNITY}[eIQ Community Page]
+====
+
+=== Starting with Machine Learning Applications
+
+* [x] Minicom Communication
+* [x] Toolchain Installation
+* [x] Network Configuration
+* [x] Flashing SD Card
+
+Once done with the above steps, the next sections show information and steps on
+where to get the _source code_ and _models_, how to transfer files to the board,
+how to prepare _models_ for _inference_, how to compile/run applications and more.
+**Hope you enjoy it!**
+
+<<<
