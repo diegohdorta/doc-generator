@@ -2,6 +2,22 @@
 
 == Robin Bird Applications
 
+=== Installed Library
+
+Use _pkg-config_ helper tool to heck if _Robin Bird_ is correctly installed:
+
+[source,bash]
+----
+$ pkg-config robin --libs
+----
+
+The _pkg-config_ retrieves the following output:
+
+[source,bash]
+----
+-L/usr/local/lib -lrobin
+----
+
 === Sample
 
 === Hello Word
