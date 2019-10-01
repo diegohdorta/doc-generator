@@ -1,0 +1,104 @@
+// Diego Dorta <diego.dorta@nxp.com>
+// Vanessa Maegima <vanessa.maegima@nxp.com>
+[[armnn]]
+== Object Recognition using Arm NN
+
+This {EIQ_ARMNN_COMMUNITY}[application] recognizes objects within _Flash Cards_ **black borders** using _Arm NN Framework_. 
+
+[[prepare_armnn]]
+=== Preparing the Object Recognition Application
+
+. Copy the {ARMNN_DEMO_LINK}[Arm NN] application on _host GNU/Linux PC_:
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ cd ~/Desktop/files/armnn // <1>
+$ scp -r object_recognition_camera data/ model/ parser.sh labels.csv root@${IMX_INET_ADDR}:/opt/armnn/ // <2>
+----
+<1> entering the `armnn` folder where is located the application.
+<2> copying files to the board thru network.
++
+. The folder structure must be equal to:
++
+_On i.MX Board Minicom Terminal execute the following commands:_
++
+[%autofit]
+----
+├── object_recognition_camera // <1>
+├── labels.csv // <2>
+├── parser.sh // <3>
+├── data // <4>
+│   ├── Cat.jpg // <5>
+│   ├── Dog.jpg // <6>
+│   └── shark.jpg // <7>
+├── models // <8>
+│   └── inception_v3_2016_08_28_frozen.pb // <9>
+----
+<1> python script to run inference on flash cards.
+<2> file containing labels that can be recognized.
+<3> script to parser the results.
+<4> folder to hold the example images.
+<5> cat example image.
+<6> dog example image.
+<7> shark example image.
+<8> folder to hold the model.
+<9> tensorflow model.
+
+[NOTE]
+====
+This application is only an extension of `TfInceptionV3-Armnn`.
+====
+
+<<<
+
+[[run_armnn]]
+=== Running the Object Recognition Application (inst)
+
+This section shows how to use the `TfInceptionV3-Armnn` test from eIQ for general
+object detection.
+
+[TIP]
+====
+The list of all object detection supported by this model can be found
+{LABELS}[here].
+====
+
+. **Run the application**:
+
++
+_On i.MX Board Minicom Terminal execute the following commands:_
++
+```
+root@imx8mmevk:/opt/armnn# ./object_recognition_camera // <1>
+```
+<1> running the application.
++
+[NOTE]
+====
+This runs the `TfInceptionV3-Armnn` test and parses the inference results to return 
+any recognized object.
+====
++
+. Show the _Flash Cards_ to the camera and wait for the message:
++
+* `Image captured, wait`
++
+[CAUTION]
+====
+The _Flash Cards_ **MUST NOT** be **twisted** or **curved**.
+====
++
+. After a few seconds, the demo returns the detected object.
++
+.Captured Flash Card
+image::chapters/media/camera_test.png[alt=.Captured Flash Card, pdfwidth=70%, title-align=center, align=center]
++
+[IMPORTANT]
+====
+This can return `False` if the image was not correctly captured. In this case,
+try showing the flash card again.
+====
+
+<<<

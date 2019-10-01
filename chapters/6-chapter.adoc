@@ -1,0 +1,140 @@
+// Diego Dorta <diego.dorta@nxp.com>
+// Vanessa Maegima <vanessa.maegima@nxp.com>
+[[opencv]]
+== OpenCV Single Shot Detection (SSD)
+
+This {EIQ_DNN_COMMUNITY}[application] was based on {SSD_DETECTOR}[SSD: Single Shot MultiBox Detector] and
+{SSD_CAFFE}[Caffe SSD Implementation] and uses {OPENCV_SITE}[OpenCV] _Deep Neural Network_ (DNN) model which
+is basically an inference engine.
+
+[[prepare_opencv]]
+=== Deploying the OpenCV SSD Applications
+
+. Deploy the {OPENCV_DEMO_LINK}[OpenCV SSD] files and model to the _i.MX Board_:
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ cd ~/Desktop/files/opencv // <1>
+$ scp -r file camera model/ media/ root@${IMX_INET_ADDR}:/opt/opencv // <2>
+----
+<1> entering the `opencv` folder where is located the application.
+<2> copying the `file`, `camera` and `model` folder to the board thru network.
++
+. The folder structure must be equal to:
++
+_On i.MX Board Minicom Terminal execute the following commands:_
++
+[%autofit]
+----
+├── file // <1>
+├── camera // <2>
+├── media // <3>
+│   └── test.jpg // <4>
+├── model // <5>
+│   ├── MobileNetSSD_deploy.caffemodel // <6>
+│   └── MobileNetSSD_deploy.prototxt // <7>
+----
+<1> python script to run inference on file.
+<2> python script to run inference on camera.
+<3> folder to hold the images to run inference on it.
+<4> image test that is used to run inference.
+<5> folder to hold the model.
+<6> caffe model
+<7> protocol buffer
+
+[NOTE]
+====
+The applications of this section were written using `Python3`.
+====
+
+<<<
+
+[[run_opencv]]
+===  Running the OpenCV SSD Applications (inst)
+
+==== File Based
+
+This application runs inference in the images located in `media` folder.
+
+. *IF* you want to copy new images to the `media/` folder (**do it at home**):
++
+_On Host GNU/Linux PC Terminal execute the following commands:_
++
+[%autofit]
+----
+$ scp <picture> root@${IMX_INET_ADDR}:/opt/opencv/media // <1>
+----
+<1> copying new images to the board thru network.
++
+. **Run the application**:
++
+_On i.MX Board Minicom Terminal execute the following commands:_
++
+[%autofit]
+----
+root@imx8mmevk:/opt/opencv# ./file // <1>
+----
+<1> running the application (the board contains one image to be tested).
++
+[NOTE]
+====
+This above line **does not show an output message**.
+====
++
+The processed images are available in the `media-labeled/` folder. See before and after labeling:
++
+.Comparison
+image::chapters/media/image-side-by-side.jpg[alt=.Comparison, pdfwidth=80%, title-align=center, align=center]
++
+. To display the labeled image use `gstreamer` pipeline:
++
+[CAUTION]
+====
+Replace `<image>` to the correct image name to be opened.
+====
++
+_On i.MX Board Minicom Terminal execute the following commands:_
++
+[%autofit]
+----
+root@imx8mmevk:/opt/opencv/media-labeled# gst-launch-1.0 filesrc location=<image> \
+! jpegdec ! imagefreeze ! autovideosink // <1>
+----
+<1> opens an image using gstreamer pipelines.
+
+<<<
+
+==== MIPI Camera Based
+
+This application uses `MIPI` camera to run real time inference on each captured frame:
+
+. **Run the application**:
++
+_On i.MX Board Minicom Terminal execute the following commands:_
++
+[%autofit]
+----
+root@imx8mmevk:/opt/opencv# ./camera // <1>
+----
+<1> running the application.
++
+.Real Time Inference
+image::chapters/media/mipiCamera.png[alt=.Real Time Inference, pdfwidth=50%, title-align=center, align=center]
++
+The list of objects that can be recognized with this model: _Aeroplane_, _Bicycle_, 
+_Bird_, _Boat_, _Bottle_, _Bus_, _Car_, _Cat_, _Chair_, _Cow_, _Dining Table_, _Dog_, _Horse_, _Motorbike_,
+_Person_, _Potted Plant_, _Sheep_, _Sofa_, _Train_ and _TV Monitor_.
+
+[NOTE]
+====
+You can easily change this model and run the inference using this same code.
+====
+
+[IMPORTANT]
+====
+This application is **not** using `GPU` acceleration.
+====
+
+<<<

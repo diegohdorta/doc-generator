@@ -1,0 +1,98 @@
+// Diego Dorta <diego.dorta@nxp.com>
+// Vanessa Maegima <vanessa.maegima@nxp.com>
+[[appendix]]
+
+== Appendix
+
+[WARNING]
+====
+**THIS SECTION IS NOT PART OF THE HANDS-ON TRAINING!**
+====
+
+=== Removing Root Privileges
+
+[source,bash]
+----
+$ sudo chown -R $USER ~/Desktop/files
+$ sudo adduser $USER dialout
+$ sudo chgrp dialout /etc/minicom/minirc.dft
+$ sudo chmod g+rw /etc/minicom/minirc.dft
+$ reboot
+----
+
+=== Network Configuration
+
+==== i.MX Board Static IP
+
+Configuring a static IP:
+
+. Create a configuration file under `/lib/systemd/network`:
++
+_i.MX Board Minicom Terminal_
++
+[source,bash]
+----
+# cat >> /lib/systemd/network/10-eth0.network << EOF
+[Match]
+Name=eth0
+[Network]
+Address=192.168.0.100/24
+Gateway=192.168.0.1
+EOF
+----
++
+. Restart the `systemd-networkd service`:
++
+_i.MX Board Minicom Terminal_
++
+[source,bash]
+----
+# systemctl restart systemd-networkd.service
+----
++
+. Verify using `ip addr`.
+
+<<<
+
+==== Host GNU/Linux PC Static IP
+
+. Create and edit the generated file adding the following lines:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ sudo netplan generate
+$ sudo gedit /etc/netplan/01-netcfg.yaml
+----
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    eno1:
+      dhcp4: no
+      dhcp6: no
+      addresses: [192.168.0.200/24, ]
+      gateway4:  192.168.0.1
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
+----
++
+. Run the following command to apply the changes:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ sudo netplan apply
+----
++
+. Verify using `ip addr`.
+
+<<<

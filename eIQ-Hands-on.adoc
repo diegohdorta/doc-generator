@@ -1,0 +1,24 @@
+= eIQ i.MX Hands-on
+:title-logo-image: image::themes/media/nxplogo.png[pdfwidth=40%, align=right]
+© 2019 NXP Semiconductor, Inc. All rights reserved.
+REV 1.0, October 01, 2019
+:doctype: book
+:reproducible:
+:toc2:
+:toclevels: 5
+:source-highlighter: coderay
+:numbered:
+:icons: font
+:autofit-option:
+
+include::variables.txt[]
+
+include::chapters/1-chapter.adoc[]
+include::chapters/2-chapter.adoc[]
+include::chapters/3-chapter.adoc[]
+include::chapters/7-chapter.adoc[]
+include::chapters/6-chapter.adoc[]
+include::chapters/5-chapter.adoc[]
+include::chapters/4-chapter.adoc[]
+include::chapters/appendix.adoc[]
+
