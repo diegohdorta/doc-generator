@@ -1,82 +1,10 @@
-[[robinbird-overview]]
+[[applications]]
 
-== Robin Bird Overview
-
-Check if _Robin Bird_ is installed by:
-
-[source,bash]
-----
-$ pkg-config robin --libs
-----
-
-The output must be:
-
-[source,bash]
-----
--L/usr/local/lib -lrobin
-----
+== Robin Bird Applications
 
 === Sample
 
-Create a simple `.cpp` file and use the following example to test if the library
-is working properly:
+=== Hello Word
 
-[source,c]
-----
-#include <iostream>
-#include <time.h>
-
-#include <robin/robin-nn.h>
-
-static double random(double x);
-
-int main(int argc, char *argv[])
-{
-    if (argc < 2) {
-        std::cout << "Missing matrix size" << std::endl;    
-        return 0;
-    }
-    
-    double size = atof(argv[1]);
-    srand(time(NULL));
-    Matrix <double> A(size, size), B(size, size);
-
-    A = A.applyFunction(random);
-    B = B.applyFunction(random);
-
-    std::cout << "Matrix A:\n" << A << std::endl;
-    std::cout << "Matrix B:\n" << B << std::endl;
-
-    std::cout << "Matrix A + B:\n" << A + B << std::endl;
-    std::cout << "Matrix A * B:\n" << A.dot(B) << std::endl;
-    
-    std::cout << "Matrix A(1,1): "<< A(0,0) << std::endl;
-    std::cout << "Matrix A(" << size << "," << size << "): "
-              << A(size - 1, size -1) << std::endl;
-    
-    return 0;
-}
-
-static double random(double x)
-{
-    return (double)(rand() % 10000 + 1)/10000;
-}
-----
-
-Compile it:
-
-[source,bash]
-----
-$ g++ sample.cpp `pkg-config robin --libs --cflags`
-----
-
-Run the example:
-
-[source,bash]
-----
-$ ./a.out
-----
-
-image::chapters/media/sample.gif[sample]
 
 

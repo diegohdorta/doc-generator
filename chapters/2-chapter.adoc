@@ -2,11 +2,13 @@
 
 == GETTING STARTED
 
-This library and documentation are **totally experimental**, providing **no warranty**
+[CAUTION]
+====
+This library is **totally experimental**, providing **no warranty**
 of a full functionatlly during these beta releases. The next steps were
 tested under the _GNU/Linux Ubuntu_ distribution _18.04.03 LTS_.
-
-image::chapters/media/diagram.png[sample]
+====
+//image::chapters/media/diagram.png[sample]
 
 === LICENSE
 
@@ -18,13 +20,65 @@ _The above copyright notice and this permission notice shall be included in all 
 
 _THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE._
 
-=== Prerequisites
+=== Building Robin Bird on eIQ&#8482; i.MX8
 
-_Robin Bird_ requires a few dependencies as well as a graphical interfaces library
-and library for image manipulation. This list of dependencies may increase over time:
+Follow the next instructions to build _Robin Bird_ using _Yocto Project_:
 
-* https://www.gtkmm.org/en/[gtkmm - _{cpp}_ Interfaces for GTK+ and GNOME]
-* http://www.libpng.org/pub/png/libpng.html[libpng - C functions for handling PNG images]
+. Generate an https://www.nxp.com/docs/en/nxp/user-guides/UM11226.pdf[_eIQ&#8482;_] image for any target board.
++
+. Then, download this http://aaa.com[recipe] and put inside your _build_ folder project.
++
+. Add the following lines into the _local.conf_ file:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+CORE_EXTRA_IMAGE =+ "robin bird"
+----
++
+. Run the following command:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ bitbake robinbird
+----
++
+. Flash the image into the _SD Card_:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ bunzip /tmp/deploy/image/robinbird.sdcard.bzip2
+$ dd if=robinbird.sdcard of=/dev/sd<x> status=progress bs=1M && sync
+----
+
+
+
+
+<<<
+
+=== Building Robin Bird for Development
+
+==== Prerequisites
+
+_Robin Bird_ requires libraries such as a graphical and image manipulation library: 
+
+|=== 
+
+| https://www.gtkmm.org/en/[_gtkmm_] | _{cpp}_ _interfaces for GTK+ and GNOME_
+
+| http://www.libpng.org/pub/png/libpng.html[_libpng_] | _C functions for handling PNG images_
+
+|===
+
+[WARNING]
+====
+This list of dependencies may increase over time:
+====
 
 ==== Installing Packages
 
@@ -102,8 +156,5 @@ $ make install
 $ ldconfig
 ----
 
-=== Embedded System Compilation
-
-(to be continued)
 
 <<<
