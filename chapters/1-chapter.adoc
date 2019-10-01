@@ -1,28 +1,52 @@
-// Copyright (c) 2019, NXP Semiconductors
-[[chapter]]
-:numbered:
-== Introduction
+// Diego Dorta <diego.dorta@nxp.com>
+// Vanessa Maegima <vanessa.maegima@nxp.com>
+[[overview]]
+== Overview
 
-=== Hello World
+This document was completely based on {EIQ-ML-DOCUMENT}[eIQ Machine Learning (ML) Software].
+The goal of this training is to introduce the user to the ML software by running
+examples that were based on it. The materials used on this hands-on can
+be found on {EIQ-SAMPLE-APPS}[eIQ Sample Apps] repo or the {EIQ_COMMUNITY}[eIQ Community] page.
 
-Here's how you say "`Hello, World!`" in `C`:
+=== AGENDA
 
-. Create a basic code:
+* **Face Recognition using TensorFlow Lite** (the one we will be focusing)
 +
-[source,c]
-----
-#include <stdio.h>
+This section uses Haar Feature-based Cascade Classifiers for real time
+face detection. After detecting the faces the demo uses TensorFlow for recognizing
+the faces.
++
+** <<prepare_face>>
+** <<run_face>>
++
+* **OpenCV Single Shot Detection (SSD)** (optional)
++
+This section uses the Deep Neural Network (DNN) module for object detection.
+The first example uses a file input and the second part uses camera as input.
++
+** <<prepare_opencv>>
+** <<run_opencv>>
++
+* **Hand Written Digits using MNIST Dataset** (optional)
++
+This section focuses on a comparison of inference time between different
+models (https://www.tensorflow.org/[TensorFlow] and https://caffe.berkeleyvision.org/[Caffe])
+for handwritten digits recognition.
++
+** <<prepare_mnist>>
+** <<run_mnist>>
++
+* **Object Recognition using Arm NN** (optional)
++
+This section shows how to run the prebuilt demo from eIQ to recognize objects using
+a _MIPI_ camera.
++
+** <<prepare_armnn>>
+** <<run_armnn>>
 
-int main(void)
-{
-    printf("Hello World!\n");
-    return 0;
-}
-----
+[NOTE]
+====
+The procedures described in this document target a _GNU/Linux_ (`Ubuntu 18.04`).
+====
 
 <<<
-
-== How-to
-
-.Captured Flash Card
-image::chapters/media/linux.png[alt=.Captured Flash Card, pdfwidth=80%, title-align=center, align=center]
