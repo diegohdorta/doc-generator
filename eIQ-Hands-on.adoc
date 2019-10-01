@@ -1,4 +1,4 @@
-= eIQ i.MX Hands-on
+= eIQ i.MX Hands-on Irvine, CA
 :title-logo-image: image::themes/media/nxplogo.png[pdfwidth=40%, align=right]
 © 2019 NXP Semiconductor, Inc. All rights reserved.
 REV 1.0, October 01, 2019
