@@ -2,11 +2,9 @@
 
 == INTRODUCTION
 
-_Robin Bird&#8482;_ is a small _Machine Learning_ library, written in _{cpp}_, that
-aims to provide simple and extensible implementations of _Machine Learning_ algorithms
-for solving real world problems on embedded systems. _Robin Bird_ provides these
-algorithms as simple command-line programs, Python bindings, and _{cpp}_ classes which
-can be used and integrated into low to medium-scale machine learning solutions.
+_Robin Bird&#8482;_ is a small _Machine Learning_ library, fully experimental, written in _{cpp}_ for learning purpose only. This library provides simple implementations of _Machine Learning_ algorithms
+for solving real world problems on embedded systems. These algorithms are released as simple command-line programs and _{cpp}_ classes which
+can be used and integrated into low to medium-scale _Machine Learning_ solutions.
 
 === Artificial Intelligence and Machine Learning
 
@@ -21,7 +19,7 @@ automate analytical models. This branch of AI was born from pattern recognition
 and the theory that computer can learn, and having the ability to independently
 draw knowledge from experience.
 
-==== Historically vs Present Time
+==== History
 
 The https://pt.wikipedia.org/wiki/Deep_Blue[Deep Blue Computer] could play chess in a high level championship but
 that's all it could do. Presently, large data centers and huge storage capacities
@@ -71,9 +69,23 @@ code to recognize two types of fruit or cars or animals. This is difficult
 without _ML_. _Robin Bird_ can make predictions based on a huge
 amount of data just by recognizing aspects and relations of patterns.
 Problems like image, speech and character recognition belongs to a
-category that is called Classification problems, which a certain given input, the
+category that is called _Classification_ problems, which a certain given input, the
 machine should be able to select a category where it belongs and labeled. 
-_Robin Bird_ release includes algorithms for recognition problems. It can be
+_Robin Bird_ include algorithms for recognition problems, it can be
 integrated with _ML_ solutions from low to medium scale.
 
 <<<
+
+== LICENSE
+
+_Robin Bird&#8482;_ is for learning and internal use only, licensed under the following
+_MIT_ conditions:
+
+_Copyright 2019 NXP Semiconductors_
+
+_Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:_
+
+_The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software._
+
+_THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE._
+
