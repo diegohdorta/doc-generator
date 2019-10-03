@@ -45,7 +45,7 @@ $ apt-get install libgtkmm-3.0-dev libpng++-dev // <1>
 +
 [CAUTION]
 ====
-You need root privileges (sudo) to use `apt-get` package manager.
+You need root privileges (_sudo_) to use `apt-get` package manager.
 ====
 
 ==== RB Source Code
@@ -137,7 +137,7 @@ _Host GNU/Linux PC Terminal_
 +
 [source,bash]
 ----
-$ pkg-config robin --libs
+$ pkg-config robin --libs --cflags
 ----
 +
 The _pkg-config_ retrieves the following output:
@@ -147,7 +147,7 @@ The _pkg-config_ retrieves the following output:
 -L/usr/local/lib -lrobin
 ----
 +
-If all goes well, go the <<rb_applications>> section.
+. If all goes well, go the <<rb_applications>> section.
 
 <<<
 
@@ -155,9 +155,9 @@ If all goes well, go the <<rb_applications>> section.
 [[building_eiq]]
 === Building RB on eIQ&#8482;
 
-Follow the next instructions to build _Robin Bird_ using _Yocto Project_:
+Follow the next instructions to build _Robin Bird&#8482;_ using https://www.yoctoproject.org/docs/current/mega-manual/mega-manual.html[_Yocto Project_]:
 
-. Generate an https://www.nxp.com/docs/en/nxp/user-guides/UM11226.pdf[_eIQ&#8482;_] image for any target board.
+. Generate an https://www.nxp.com/docs/en/nxp/user-guides/UM11226.pdf[_eIQ&#8482; Machine Learning Software_] image for any target board.
 +
 . Then, download this http://aaa.com[recipe] and put inside your _build_ folder project.
 +
@@ -191,7 +191,7 @@ $ dd if=robinbird.sdcard of=/dev/sd<x> status=progress bs=1M && sync
 +
 [CAUTION]
 ====
-You need root privileges (sudo) to use `dd` for writing to `/dev/sd<x>`.
+You need root privileges (_sudo_) to use `dd` for writing to `/dev/sd<x>`.
 ====
 +
 [IMPORTANT]

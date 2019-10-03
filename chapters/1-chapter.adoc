@@ -59,19 +59,19 @@ types of algorithms for different issues are being created every day and
 embedded systems are fully prepared to completely embrace this technology
 replacing the work of an human being.
 _ML_ is the study of algorithms that learn from examples and
-experiences instead of relying on hard-coded rules. _Robin Bird_ solves real
+experiences instead of relying on hard-coded rules. _Robin Bird&#8482;_ solves real
 world problems using only math and object-oriented programming, including
 an easily extensible implementation of object-oriented classes for enthusiast
 developers.
 
 For instance, think about the following situation where it is required to write
 code to recognize two types of fruit or cars or animals. This is difficult
-without _ML_. _Robin Bird_ can make predictions based on a huge
+without _ML_. _Robin Bird&#8482;_ can make predictions based on a huge
 amount of data just by recognizing aspects and relations of patterns.
 Problems like image, speech and character recognition belongs to a
 category that is called _Classification_ problems, which a certain given input, the
 machine should be able to select a category where it belongs and labeled. 
-_Robin Bird_ include algorithms for recognition problems, it can be
+_Robin Bird&#8482;_ include algorithms for recognition problems, it can be
 integrated with _ML_ solutions from low to medium scale.
 
 <<<
