@@ -257,10 +257,10 @@ header:
   line-height: 1
   recto:
     center:
-      content: '© 2019 NXP Semiconductor Rev {revnumber} {docdate}'
+      content: 'INTERNAL USE ONLY © 2019 NXP Semiconductor Rev {revnumber} {docdate}'
   verso:
     center:
-      content: '© 2019 NXP Semiconductor Rev {revnumber} {docdate}'
+      content: 'INTERNAL USE ONLY © 2019 NXP Semiconductor Rev {revnumber} {docdate}'
 #################################################################################
 footer:
   font_color: 787877
