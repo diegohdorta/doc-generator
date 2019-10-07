@@ -27,7 +27,7 @@ base:
   align: justify
   font_color: 333333
   font_family: Noto Serif
-  font_size: 9
+  font_size: 8.8
   line_height_length: 10
   line_height: $base_line_height_length / $base_font_size
   font_size_large: round($base_font_size * 1)
@@ -35,8 +35,8 @@ base:
   font_size_min: $base_font_size * 0.75
   font_style: normal
   border_color: eeeeee
-  border_radius: 4
-  border_width: 0.5
+  border_radius: 2
+  border_width: 0.3
 ################################################################################
 role:
   big:
@@ -90,7 +90,7 @@ heading:
   line_height: 1
   margin_top: $vertical_rhythm * 0.4
   margin_bottom: $vertical_rhythm * 0.9
-  min_height_after: $base_line_height_length * 1.5
+  min_height_after: $base_line_height_length * 1.2
 ################################################################################
 title_page:
   align: right
@@ -163,12 +163,12 @@ code:
   font_family: $literal_font_family
   font_size: ceil($base_font_size)
   padding: $code_font_size
-  line_height: 1.25
-  line_gap: 3.8
+  line_height: 0.8
+  line_gap: 2
   background_color: BEBEBE
   border_color: $base_font_color
   border_radius: $base_border_radius
-  border_width: 0.5
+  border_width: 0.3
 ################################################################################
 conum:
   font_family: $literal_font_family
