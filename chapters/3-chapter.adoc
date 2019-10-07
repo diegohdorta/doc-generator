@@ -5,50 +5,9 @@
 
 === RB Hello World
 
-Follow the next instructions to test if the library is working properly:
+The next instructions can be used to test if the library is working properly:
 
-. Create a simple _{cpp}_ and copy the following content:
-+
-_Host GNU/Linux PC Terminal_
-+ 
-[source,c]
-----
-#include <iostream>
-#include <time.h>
-
-#include <robin/robin-nn.h>
-
-static double random(double x);
-
-int main(int argc, char *argv[])
-{
-    if (argc < 2) {
-        std::cout << "Missing matrix size" << std::endl;    
-        return 0;
-    }
-    
-    double size = atof(argv[1]);
-    srand(time(NULL));
-    Matrix <double> A(size, size), B(size, size);
-    A = A.applyFunction(random);
-    B = B.applyFunction(random);
-    
-    std::cout << "Matrix A:\n" << A << std::endl;
-    std::cout << "Matrix B:\n" << B << std::endl;
-    std::cout << "Matrix A + B:\n" << A + B << std::endl;
-    std::cout << "Matrix A * B:\n" << A.dot(B) << std::endl;    
-    std::cout << "Matrix A(1,1): "<< A(0,0) << std::endl;
-    std::cout << "Matrix A(" << size << "," << size << "): "
-              << A(size - 1, size -1) << std::endl;
-    
-    return 0;
-}
-
-static double random(double x)
-{
-    return (double)(rand() % 10000 + 1)/10000;
-}
-----
+. Use the following _{cpp}_ https://bitbucket.sw.nxp.com/projects/IMXS/repos/robin-bird/browse/robin/samples/example/example.cpp[_code_] to create a simple example using _Robin Bird&#8482;_ functions:
 +
 . To compile the code, use the next command-line:
 +
@@ -56,7 +15,7 @@ _Host GNU/Linux PC Terminal_
 +
 [source,bash]
 ----
-$ g++ sample.cpp `pkg-config robin --libs --cflags` // <1>
+$ g++ example.cpp `pkg-config robin --libs --cflags` // <1>
 $ ./a.out // <2>
 ----
 <1> compiling the code.

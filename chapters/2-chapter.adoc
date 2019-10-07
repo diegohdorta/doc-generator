@@ -56,7 +56,7 @@ _Host GNU/Linux PC Terminal_
 +
 [source,bash]
 ----
-$ git clone <link> // <1>
+$ git clone https://bitbucket.sw.nxp.com/scm/imxs/robin-bird.git // <1>
 $ cd robin-bird/ // <2>
 ----
 <1> cloning the repo.
@@ -179,14 +179,24 @@ _Host GNU/Linux PC Terminal_
 $ bitbake robinbird
 ----
 +
-. Flash the image into the _SD Card_:
+. Generating a bootable _SD Card_:
++
+.. Uncompress the image:
 +
 _Host GNU/Linux PC Terminal_
 +
 [source,bash]
 ----
-$ bunzip /tmp/deploy/image/robinbird.sdcard.bzip2
-$ dd if=robinbird.sdcard of=/dev/sd<x> status=progress bs=1M && sync
+$ bunzip /tmp/deploy/image/<image_name>.sdcard.bzip2
+----
++
+.. Flash the image into the _SD Card_:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ dd if=<image_name>.sdcard of=/dev/sd<x> status=progress bs=1M && sync
 ----
 +
 [CAUTION]
@@ -197,5 +207,10 @@ You need root privileges (_sudo_) to use `dd` for writing to `/dev/sd<x>`.
 [IMPORTANT]
 ====
 **_<x>_** refers to the SD Card device. You can check it using `lsblk` command.
+====
++
+[IMPORTANT]
+====
+_<image_name>_ refers to the respective board image.
 ====
 
