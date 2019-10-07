@@ -3,12 +3,14 @@
 == INTRODUCTION
 
 _Robin Bird&#8482;_ is a small _Machine Learning_ library, fully experimental, written in _{cpp}_ for learning purpose only. This library provides simple implementations of _Machine Learning_ algorithms
-for solving real world problems on embedded systems. These algorithms are released as simple command-line programs and _{cpp}_ classes which
+for solving real world problems on embedded systems. These algorithms are released as simple command-line programs and classes which
 can be used and integrated into low to medium-scale _Machine Learning_ solutions.
 
-=== Artificial Intelligence and Machine Learning
+=== LICENSE
 
-==== Overview
+_Robin Bird&#8482;_ is licensed under https://opensource.org/licenses/MIT[MIT License] _Copyright 2019 NXP Semiconductors_. 
+
+=== Artificial Intelligence and Machine Learning
 
 _Artificial Intelligence_ (_AI_) brings to mind science fiction stories about robots
 and talking machines. Some might even relate _Machine Learning_ (_ML_) to advanced
@@ -19,23 +21,22 @@ automate analytical models. This branch of AI was born from pattern recognition
 and the theory that computer can learn, and having the ability to independently
 draw knowledge from experience.
 
-==== History
-
-The https://pt.wikipedia.org/wiki/Deep_Blue[Deep Blue Computer] could play chess in a high level championship but
+The https://pt.wikipedia.org/wiki/Deep_Blue[Deep Blue Computer] could play _chess_ in a high level championship but
 that's all it could do. Presently, large data centers and huge storage capacities
 make things that were believed for years to be distant concepts possible.
 Writing a program to play tic-tac-toe would require a huge number of specific
 conditional branches to handle even these simple moves and rules. The problem
 grows significantly with more complicated games such as chess that has an
-average of 35 possible moves each turn. The choices become ever more complex
+average of _35_ possible moves each turn. 
+
+In _chess_ these choices become ever more complex
 as the game progresses and rules written in a structured programming language
 begin to break down.
 The program and its decisions for every possibility become impracticable to
 manage. The rules do not need to be written by a human. With the right
 instructions, the computer can learn to create its own decision trees.
 
-
-In its basic form, _ML_ combined with hardware-accelerated embedded systems can
+_Machine Learning_ combined with hardware-accelerated embedded systems can
 reach significant improvements in image and video recognition. The reason is
 a certain level of performance embedded systems have reached over the last
 few years.
@@ -44,6 +45,7 @@ several types of industrial processes. Autonomous vehicles and voice control
 assistants — once subjects of science fiction — have attained significant
 research and development success and even consumer products in today's
 marketplace.
+
 This field boils down on spending time to write many lines of code that
 eventually solve a problem by applying some type of intelligent algorithm. For
 instance, some smart houses have lighting systems which automatically turn on
@@ -51,7 +53,7 @@ and off based on whether anyone is present in the room. This idea does not
 amuse, but thinking about this consider that this system is actually making
 independent decisions.
 
-==== Robin Bird Algorithm
+=== Robin Bird Algorithm
 
 The much-needed algorithms required for real-time image and video recognition
 are being developed and will get it all quickly. Not just that, several
@@ -75,17 +77,3 @@ _Robin Bird&#8482;_ include algorithms for recognition problems, it can be
 integrated with _ML_ solutions from low to medium scale.
 
 <<<
-
-== LICENSE
-
-_Robin Bird&#8482;_ is for learning and internal use only, licensed under the following
-_MIT_ conditions:
-
-_Copyright 2019 NXP Semiconductors_
-
-_Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:_
-
-_The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software._
-
-_THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE._
-
