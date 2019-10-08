@@ -121,7 +121,7 @@ image::chapters/media/login-prompt.png[alt=.Prompt log in, pdfwidth=50%, title-a
 
 === Toolchain Installation (inst)
 
-The `4.19` toolchain must be installed to _cross-compile_ the applications in the _host GNU/Linux PC_.
+The http://shlinux12.ap.freescale.net/Yocto_SDK/[`4.19` toolchain] must be installed to _cross-compile_ the applications in the _host GNU/Linux PC_.
 
 . Open a terminal on the _host GNU/Linux PC_, then:
 +
