@@ -2,13 +2,13 @@
 
 == INTRODUCTION
 
-_Robin Bird&#8482;_ is a small _Machine Learning_ library, fully experimental, written in _{cpp}_ for learning purpose only. This library provides simple implementations of _Machine Learning_ algorithms
+_Robin Bird&#8482; (or RB&#8482;)_ is a small and fully experimental _Machine Learning_ library, written in _{cpp}_ for **learning purpose only**. This library provides simple implementations of _Machine Learning_ algorithms
 for solving real world problems on embedded systems. These algorithms are released as simple command-line programs and classes which
-can be used and integrated into low to medium-scale _Machine Learning_ solutions.
+can be used and integrated from low to medium-scale _Machine Learning_ solutions.
 
 === LICENSE
 
-_Robin Bird&#8482;_ is licensed under https://opensource.org/licenses/MIT[MIT License] _Copyright 2019 NXP Semiconductors_. 
+_RB&#8482;_ is licensed under https://opensource.org/licenses/MIT[MIT License] _Copyright 2019 NXP Semiconductors_. 
 
 === Artificial Intelligence and Machine Learning
 
@@ -53,7 +53,7 @@ and off based on whether anyone is present in the room. This idea does not
 amuse, but thinking about this consider that this system is actually making
 independent decisions.
 
-=== Robin Bird Algorithm
+=== RB&#8482;
 
 The much-needed algorithms required for real-time image and video recognition
 are being developed and will get it all quickly. Not just that, several
@@ -61,19 +61,19 @@ types of algorithms for different issues are being created every day and
 embedded systems are fully prepared to completely embrace this technology
 replacing the work of an human being.
 _ML_ is the study of algorithms that learn from examples and
-experiences instead of relying on hard-coded rules. _Robin Bird&#8482;_ solves real
+experiences instead of relying on hard-coded rules. _RB&#8482;_ solves real
 world problems using only math and object-oriented programming, including
 an easily extensible implementation of object-oriented classes for enthusiast
 developers.
 
 For instance, think about the following situation where it is required to write
 code to recognize two types of fruit or cars or animals. This is difficult
-without _ML_. _Robin Bird&#8482;_ can make predictions based on a huge
+without _ML_. _RB&#8482;_ can make predictions based on a huge
 amount of data just by recognizing aspects and relations of patterns.
 Problems like image, speech and character recognition belongs to a
 category that is called _Classification_ problems, which a certain given input, the
 machine should be able to select a category where it belongs and labeled. 
-_Robin Bird&#8482;_ include algorithms for recognition problems, it can be
+_RB&#8482;_ include algorithms for recognition problems, it can be
 integrated with _ML_ solutions from low to medium scale.
 
 <<<

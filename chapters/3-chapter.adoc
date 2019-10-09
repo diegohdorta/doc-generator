@@ -1,13 +1,13 @@
 [[applications]]
 
 [[rb_applications]]
-== Robin Bird&#8482; Applications
+== RB&#8482; Applications
 
-=== RB Hello World
+=== RB&#8482; Hello World
 
 The next instructions can be used to test if the library is working properly:
 
-. Use the following _{cpp}_ https://bitbucket.sw.nxp.com/projects/IMXS/repos/robin-bird/browse/robin/samples/example/example.cpp[_code_] to create a simple example using _Robin Bird&#8482;_ functions:
+. Use the following _{cpp}_ https://bitbucket.sw.nxp.com/projects/IMXS/repos/robin-bird/browse/robin/samples/example/example.cpp[_source code_] to create a simple example using _RB&#8482;_ functions:
 +
 . To compile the code, use the next command-line:
 +
@@ -23,5 +23,5 @@ $ ./a.out // <2>
 +
 [TIP]
 ====
-This example demonstrates the basic _RB_ operations on matrices.
+This example demonstrates the basic _RB&#8482;_ operations on matrices.
 ====
