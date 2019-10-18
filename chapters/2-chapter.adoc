@@ -50,33 +50,6 @@ You need root privileges (_sudo_) to use `apt-get` package manager.
 [[building_pc]]
 === Building RB&#8482; on GNU/Linux Host PC
 
-==== RB&#8482; Debian Package
-
-. Install the RB&#8482; using `dpkg` tool, as follow:
-+
-_**Host GNU/Linux PC Terminal**_
-+
-[source,bash]
-----
-$ wget <link to bitbucket> // <1>
-$ dpkg -i robin-<version>-Linux.deb // <2>
-----
-<1> _retrieving deb package from bitbucket_.
-<2> _installing package using `dpkg` tool_.
-+
-[CAUTION]
-====
-You need root privileges (sudo) to use `dpkg` tool.
-====
-+
-[IMPORTANT]
-====
-_<versio> must be replace by the current deb package version_.
-====
-
-==== RB&#8482; Package Manager
-
-_Under development_
 
 ==== RB&#8482; Source Code
 
@@ -149,11 +122,9 @@ $ cmake .. -DROBIN_BIRD=ON \
            -DINSTURMENT_FOR_FUZZING=OFF \
            -DROBIN_BIN_INSTALL_DIR=/bin // <1> 
 $ cmake --build . // <2>
-$ cpack // <3>
 ----
 <1> _configuring the project using cmake and the choosen flags_.
 <2> _building the project_.
-<3> _using `cpack` tool to generate a new deb package_.
 +
 . Install the _binaries_ and dynamic link the library:
 +
