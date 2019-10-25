@@ -1,4 +1,54 @@
 
+
+
+
+
+
+[[training]]
+==== RB&#8482; Training and Testing
+
+
+
+
+
+[[train_imx]]
+==== Training on i.MX Board
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 CASO VOLTE A FUNCIONAR O DEBIAN PACKAGE
 
 [source,bash]

@@ -3,7 +3,7 @@
 [[rb_applications]]
 == RB&#8482; Applications
 
-=== RB&#8482; Hello World
+=== RB&#8482; Hello World Example
 
 The next instructions can be used to test if the library is working properly:
 
@@ -25,3 +25,168 @@ $ ./a.out // <2>
 ====
 This example demonstrates the basic _RB&#8482;_ operations on matrices.
 ====
+
+
+
+
+
+
+
+=== RB&#8482; HandWriting Digit Recognition Application
+
+_RB&#8482;_ has a simple _Neural Network_ implemented for recognizing handwritten digits. The next sections approach how
+to run the _UI_ application using a _RB&#8482;_ model, and how to train a new model and populate the dataset.
+
+* _Running inference on a new input data using command line_ <<inference_cl>>.
+* _Running inference on a new input data using UI application_ <<inference_ui>>.
+* _Using a dataset to train a new model and test it_ <<train_test>>.
+* _Populating the dataset using RB&#8482; web page_ <<webpage>>.
+
+[[inference_cl]]
+==== RB&#8482; Running Inference using Command-line
+
+. Go the board and run the following command-line:
++
+_i.MX8 Board Terminal_
++
+[source,bash]
+----
+# hwd-digit-input <image> // <1>
+----
+<1> _running inference on a single image_.
++
+[CAUTION]
+====
+The image must be a _32x32_ (1024 pixels) gray scale.
+====
++
+. The output is a vector from 0 to 9 and it position has the estimated result percent.
+
+[[inference_ui]]
+==== RB&#8482; Running Inference using UI Application
+
+. To run inference in a real time handwriting digit:
++
+_i.MX8 Board Terminal_
++
+[source,bash]
+----
+# handWrittenDigitInputUI <model> // <1>
+----
+<1> _running inference on a single image_.
++
+. It opens an UI and just write the number from 0 to 9:
++
+.UI Application
+image::chapters/media/ui_application.png[alt=.UI Application, pdfwidth=50%, title-align=center, align=center]
++
+[IMPORTANT]
+====
+The inference time is around _30 milliseconds_.
+====
+
+
+
+
+
+
+
+
+
+
+[[train_test]]
+==== RB&#8482; Training a New Model
+
+The following instructions explain how to get a _dataset_, how the _dataset_ works and how to train the model.
+
+[CAUTION]
+====
+This step is **NOT** required. Download the model on http://167.99.156.183:4567/training[_RB&#8482; webpage_] 
+====
+
+The http://167.99.156.183:4567/training[_RB&#8482;_] webpage provides the model and also the _dataset_ for training on any device that has the library installed.
+
+_RB&#8482;_ has a different format to save the data, the images collected in the http://10.29.244.105/robinbird/index.html[_RB&#8482; webpage_] are convert to _gray scale_,
+then all the _black spots_ receive _ones_ and the _white spots_ receive _zero_, as follows:
+
+.Dataset Example
+image::chapters/media/sample_1.png[alt=.Dataset Example, pdfwidth=15%, title-align=center, align=center]
+
+[IMPORTANT]
+====
+The images used in this dataset have _32x32_ (1024 pixels).
+====
+
+===== Training the Dataset
+
+Using the _dataset_ containing the binary images it is possible to start computing the model.
+
+. Download the dataset for training and for testing from http://167.99.156.183:4567/training[_RB&#8482; webpage_]:
++
+[source,bash]
+----
+$ hwd-digit hwd-digits-train.rb 100 hwd-digits-test.rb 10 100 0.7 // <1>
+----
+<1> _training a new model_.
++
+.Parameters
+|===
+|Binary Name |Train Dataset File |Number of Inputs |Test Dataset File |Number of Inputs |Number of Neurons |Learning Rate
+
+|hwd-digit
+|hwd-digits-train.rb
+|Use dataset size
+|hwd-digits-test.rb
+|Use 10
+|Use 100 (regular)
+|Use 0.7 (experimental)
+
+|===
++
+.. Here is a simple 32x32 (1024 pixels) image that was convert into gray scale:
++
+.Gray Scale Number
+image::chapters/media/number.png[alt=.Gray Scale Number, pdfwidth=20%, title-align=center, align=center]
+
+
+
+[[webpage]]
+==== RB&#8482; Webpage Populating the Dataset
+
+To download a _handwritten digit_ model, use the internal http://167.99.156.183:4567/training[_RB&#8482;_] webpage.
+This page was create to collect data for training the model, to help the user only need to write
+the random number that is sorted on the white space, then click send. 
+
+
+[TIP]
+====
+The http://167.99.156.183:4567/training[_RB&#8482;_] webpage has model to download and avoid spending time on training.
+====
+
+. Follow a screenshot of the webpage where should be draw the random numbers:
++
+.Collecting Data for Training
+image::chapters/media/webpage.png[alt=.Collect Data for Training, pdfwidth=70%, title-align=center, align=center]
++
+[TIP]
+====
+The http://10.29.244.105/robinbird/index.html[_Robin Bird&#8482;_] webpage trains model every _100_ new inputs.
+====
+
+<<<
+
+== Revision History
+
+|===
+|Version |Author |Changes |Date
+
+|1.0
+|Diego Dorta, Marco Franchi, Rogerio Pimental and Vanessa Maegima
+|Original release 1.0
+|10/29/2019
+
+|===
+
+
+
+

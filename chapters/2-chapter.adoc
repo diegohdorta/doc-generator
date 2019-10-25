@@ -169,53 +169,71 @@ If all goes well, go the <<rb_applications>> section.
 
 <<<
 
-
 [[building_eiq]]
 === Building RB&#8482; on eIQ&#8482;
 
-Follow the next instructions to build _RB&#8482;_ using https://www.yoctoproject.org/docs/current/mega-manual/mega-manual.html[_Yocto Project_]:
-
-. Generate an https://www.nxp.com/docs/en/nxp/user-guides/UM11226.pdf[_eIQ&#8482; Machine Learning Software_] image for any target board.
+. Download the latest _GNU/Linux BSP_ documentation available on https://www.nxp.com/design/i.mx-developer-resources/i.mx-software-and-development-tool:IMX-SW[IMX-SW].
 +
-. Then, download this http://aaa.com[recipe] and put inside your _build_ folder project.
+. Follow the steps from the Yocto Project User's Guide to create a build environment.
 +
-. Add the following lines into the _local.conf_ file:
+[IMPORTANT]
+====
+At the time this tutorial was written, the latest release available was ** L4.14.98-2.0.0_ga**.
+====
 +
-_**Host GNU/Linux PC Terminal**_
-+
-[source,bash]
-----
-CORE_EXTRA_IMAGE =+ "robin bird"
-----
-+
-. Run the following command:
+. Apply the http://167.99.156.183:4567/patches/add-robin-bird-recipe.patch[this] patch to the _meta-fsl-bsp-release_ meta layer:
 +
 _**Host GNU/Linux PC Terminal**_
 +
 [source,bash]
 ----
-$ bitbake robinbird
+$ cd /sources/meta-fsl-bsp-release // <1>
+$ git am <downloaded_patch> // <2>
 ----
+<1> _entering the meta-fsl-bsp-release folder_.
+<2> _applying the patch_.
++
+. Create the build directory:
++
+_**Host GNU/Linux PC Terminal**_
++
+[source,bash]
+----
+$ DISTRO=fsl-imx-xwayland MACHINE=imx8qmmek source fsl-setup-release.sh -b build-xwayland // <1>
+----
+<1> _creating the build directory_.
++
+. Include the following line at the end of the _build-xwayland/conf/local.conf_ file:
++
+_**Host GNU/Linux PC Terminal**_
++
+[source,bash]
+----
+IMAGE_INSTALL_append += "robin-bird" // <1>
+----
+<1> _including RB&#8482; recipe_.
++
+. Build the image:
++
+_**Host GNU/Linux PC Terminal**_
++
+[source,bash]
+----
+$ bitbake fsl-image-qt5 // <1>
+----
+<1> _generating the image_.
 +
 . Generating a bootable _SD Card_:
 +
-.. Uncompress the image:
-+
 _**Host GNU/Linux PC Terminal**_
 +
 [source,bash]
 ----
-$ bunzip /tmp/deploy/image/<image_name>.sdcard.bzip2
+$ bunzip /tmp/deploy/image/<image_name>.sdcard.bzip2 // <1>
+$ dd if=<image_name>.sdcard of=/dev/sd<x> status=progress bs=1M && sync // <2>
 ----
-+
-.. Flash the image into the _SD Card_:
-+
-_**Host GNU/Linux PC Terminal**_
-+
-[source,bash]
-----
-$ dd if=<image_name>.sdcard of=/dev/sd<x> status=progress bs=1M && sync
-----
+<1> _uncompressing the image_.
+<2> _burning the image to the SD Card_.
 +
 [CAUTION]
 ====
