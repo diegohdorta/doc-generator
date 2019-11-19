@@ -1,19 +1,22 @@
 # NXP Template for Documentation using AsciiDoctor
 
-To build use the following commands:
+1. To build use the following commands:
 
 ```bash
 $ apt-get install ruby
 $ gem install bundler
 $ bundle install
 ```
+2. Fork the `doc-generator` at this [link](https://bitbucket.sw.nxp.com/users/nxf47857/repos/doc-generator/browse).
 
-To generate a new template:
+3. To generate a new template:
 ```bash
+$ git checkout master
+$ git branch "your_document_branch_name"
 $ ./doc-generator -d "File name" -t "Document Title"
 ```
 
-To re-compile the document:
+3. To re-compile the document:
 
 ```bash
 $ ./doc-generator
