@@ -1,28 +1,157 @@
-// Copyright (c) 2019, NXP Semiconductors
+// Copyright 2019, NXP Semiconductors
 [[chapter]]
 :numbered:
+// #############################################################################
+// #############################################################################
+// #############################################################################
+
 == Introduction
 
-=== Hello World
+=== Definition
 
-Here's how you say "`Hello, World!`" in `C`:
+=== Processor Architectures
 
-. Create a basic code:
+=== Generic Architecture of an Embedded Linux System
+
+=== Linked Setup
+
+=== Standalone Setup
+
+=== Solid State Storage Media (SD Card)
+
+// #############################################################################
+// #############################################################################
+// #############################################################################
+
+== Developing Tools
+
+=== GNU Cross-Platform Development Toolchain
+
+A `toolchain` is a set of tools that compiles source codes generating executable binary
+which can run on a specific target device. It includes a _compiler_, _linker_,
+_run-time libraries_ and might also include a _debugger_. The `toolchain` must
+be able to compile codes written in _Assembly_, _C_ and _C++_ since these are the
+most common languages used in the based open source packages.
+
+[IMPORTANT%autofit]
+====
+The described procedures in this document target a _GNU/Linux_ (`Ubuntu 18.04.3 LTS`).
+====
+
+[CAUTION%autofit]
+====
+You need root privileges (sudo) to run a few commands described in this document.
+====
+
+==== Graphical Package Management
+
+Try to avoid this step and go direct to <<gcc_commandline>>. This section can be used
+to search and install the cross-compiler packages using a _graphical tool_.
+
+. Install a _Graphical Package Management_ and open it:
 +
-[source,c]
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
 ----
-#include <stdio.h>
-
-int main(void)
-{
-    printf("Hello World!\n");
-    return 0;
-}
+$ apt-get install synaptic // <1>
+$ synaptic // <2>
 ----
+<1> using _apt-get_ package manager to install _synaptic_ tool.
+<2> running _synaptic_ tool.
++
+. Choose the following _toolchain_ and install it:
++
+* **gcc-arm-linux-gnueabi**
++
+[TIP%autofit]
+====
+Highly recommended to use the command lines to get familiar with _Unix environment_.
+====
 
-<<<
+[[gcc_commandline]]
+==== GCC Arm GNU/Linux Toolchain
 
-== How-to
+. Install the _GCC_, _G++_ cross-compilers and support programs:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ apt-get install libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev // <1>
+----
+<1> using _apt-get_ to install all the required packages for compiling.
++
+. Install the specific cross-compilers to _i.MX_ processors:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ apt-get install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi // <1>
+----
+<1> using _apt-get_ to install all the required packages for compiling.
++
+. To export the cross-compiler, run the following environment variables:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ export ARCH=arm // <1>
+$ export CROSS_COMPILE=/usr/bin/arm-linux-gnueabi- // <2>
+----
+<1> exporting environment variable for defining the platform.
+<2> exporting environment variable for defining the cross-compiler binary.
++
+[CAUTION%autofit]
+====
+These environment variables are only set for this shell and its child processes.
+If the shell/terminal is **closed** and starts a new one, these settings will not be retained.
+====
++
+. To make it easier, follow the next instructions:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ touch toolchain-variables.sh // <1>
+$ echo "export ARCH=arm" >> toolchain-variables.sh // <2>
+$ echo "export CROSS_COMPILE=/usr/bin/arm-linux-gnueabi-" >> toolchain-variables.sh // <3>
+----
+<1> create a file.
+<2> write content to the file.
+<3> write content to the file.
++
+. Change the file permission and create a symbolic link:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ chmod +x toolchain-variables.sh // <1>
+$ ln -s toolchain-variables /bin/go_arm // <2>
+----
+<1> applies execution permission to file.
+<2> create symbolic link.
++
+[CAUTION%autofit]
+====
+You need root privileges (sudo) to use `ln` command.
+====
++
+. Before compiling, run the following command:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ source go_arm // <1>
+----
+<1> export the toolchain variables.
 
-.Captured Flash Card
-image::chapters/media/linux.png[alt=.Captured Flash Card, pdfwidth=80%, title-align=center, align=center]
+
+
+
+

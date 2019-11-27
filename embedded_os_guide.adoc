@@ -1,0 +1,13 @@
+= Embedded OS Guide
+:title-logo-image: image::themes/media/nxplogo.png[pdfwidth=40%, align=right]
+© 2019 NXP Semiconductor, Inc. All rights reserved.
+REV 1.0, November 27, 2019
+:doctype: book
+:reproducible:
+:toc2:
+:toclevels: 5
+:source-highlighter: coderay
+:numbered:
+:icons: font
+:autofit-option:
+include::chapters/1-chapter.adoc[]
