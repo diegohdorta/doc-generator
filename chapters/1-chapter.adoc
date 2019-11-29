@@ -109,47 +109,6 @@ $ export CROSS_COMPILE=/usr/bin/arm-linux-gnueabi- // <2>
 These environment variables are only set for this shell and its child processes.
 If the shell/terminal is **closed** and starts a new one, these settings will not be retained.
 ====
-+
-. To make it easier, follow the next instructions:
-+
-_Host GNU/Linux PC Terminal_
-+
-[source,bash]
-----
-$ touch toolchain-variables.sh // <1>
-$ echo "export ARCH=arm" >> toolchain-variables.sh // <2>
-$ echo "export CROSS_COMPILE=/usr/bin/arm-linux-gnueabi-" >> toolchain-variables.sh // <3>
-----
-<1> create a file.
-<2> write content to the file.
-<3> write content to the file.
-+
-. Change the file permission and create a symbolic link:
-+
-_Host GNU/Linux PC Terminal_
-+
-[source,bash]
-----
-$ chmod +x toolchain-variables.sh // <1>
-$ ln -s toolchain-variables /bin/go_arm // <2>
-----
-<1> applies execution permission to file.
-<2> create symbolic link.
-+
-[CAUTION%autofit]
-====
-You need root privileges (sudo) to use `ln` command.
-====
-+
-. Before compiling, run the following command:
-+
-_Host GNU/Linux PC Terminal_
-+
-[source,bash]
-----
-$ source go_arm // <1>
-----
-<1> export the toolchain variables.
 
 ==== NXP Yocto Toolchain
 
@@ -178,10 +137,68 @@ $ sh ./<toolchain-version>.sh // <1>
 ----
 <1> running the toolchain to be installed.
 +
+. To export Yocto toolchain:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ source /opt/eee/ ....  // <1>
+----
+<1> export the toolchain variables.
++
 [TIP%autofit]
 ====
 This toolchain is used to compile most of the _C_ and _C++_ applications.
 ====
+
+==== Export the Environment
+
+To easy export the environment variables from the above steps, follow the next instructions:
+
+. To make it easier, follow the next instructions:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ touch ~/toolchain-variables.sh // <1>
+$ echo "export ARCH=arm" >> ~/toolchain-variables.sh // <2>
+$ echo "export CROSS_COMPILE=/usr/bin/arm-linux-gnueabi-" >> ~/toolchain-variables.sh // <3>
+----
+<1> create a file.
+<2> write content to the file.
+<3> write content to the file.
++
+. Change the file permission and create a symbolic link:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ chmod +x ~/toolchain-variables.sh // <1>
+$ ln -s ~/toolchain-variables /bin/go_arm // <2>
+----
+<1> applies execution permission to file.
+<2> create symbolic link.
++
+[CAUTION%autofit]
+====
+You need root privileges (sudo) to use `ln` command.
+====
++
+. Before compiling, run the following command:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ source go_arm // <1>
+----
+<1> export the toolchain variables.
+
+
+
 <<<
 
 === Terminal Emulators
@@ -241,5 +258,61 @@ $ minicom // <1>
 <1> open `Minicom` with default settings.
 +
 . Turn the target board power switch to _on_, when it reaches the login prompt, enter: `root`.
+
+// #############################################################################
+// #############################################################################
+// #############################################################################
+
+== Getting Started with i.MX
+
+=== Bootloader
+
+==== Software Requirement
+
+. Install a few dependencies first:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ apt-get install bison flex
+----
+
+==== Prepare the Environment
+
+. The cross-compiler must be exported before compiling the bootloader:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ source go_arm // <1>
+----
+<1> export the toolchain variables.
+
+==== Compile the U-Boot
+
+. Follow the steps to compile U-Boot for i.MX:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ git clone git://git.denx.de/u-boot-imx.git
+$ cd u-boot-imx/
+$ git checkout -b local_branch
+$ make <board_name>
+$ make
+----
+
+==== Flash the U-Boot to SD Card
+
+
+
+
+
+=== Kernel
+
+=== Root Filesystem
 
 
