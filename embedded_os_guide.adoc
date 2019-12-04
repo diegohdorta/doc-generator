@@ -1,4 +1,4 @@
-= Embedded OS Guide
+= Getting Started with Embedded Systems
 :title-logo-image: image::themes/media/nxplogo.png[pdfwidth=40%, align=right]
 © 2019 NXP Semiconductor, Inc. All rights reserved.
 REV 1.0, November 27, 2019

@@ -4,6 +4,12 @@
 // #############################################################################
 // #############################################################################
 // #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
 
 == Introduction
 
@@ -19,6 +25,73 @@
 
 === Solid State Storage Media (SD Card)
 
+
+
+// #############################################################################
+// #############################################################################
+// #############################################################################
+
+<<<
+
+=== Preparing the i.MX 8M Mini EVK Board
+
+The following section describes the steps to setup the _i.MX 8M Mini EVK Board_.
+
+.i.MX 8M Mini EVK Board Top View
+image::chapters/media/imx8mmevk_front.png[alt=.Top view i.MX 8M Mini EVK board, pdfwidth=80%, title-align=center, align=center]
+
+.i.MX 8M Mini EVK Board Back View
+image::chapters/media/imx8mmevk_back.png[alt=.Back view i.MX 8M Mini EVK board, pdfwidth=80%, title-align=center, align=center]
+
+<<<
+
+. Connect the _IMX-MIPI-HDMI Daughter Card_ to the _Mini-SAS Cable_ and into connector
+labeled _DSI MIPI_ (`J801`) and then connect the _HDMI Monitor Cable_ into it.
++
+.IMX-MIPI-HDMI Daughter Card
+image::chapters/media/imx-mipi-hdmi.png[alt=.IMX-MIPI-HDMI daughter card, pdfwidth=25%, title-align=center, align=center]
++
+. Connect the _MINISASTOCSI Camera Daughter Card_ to the _Mini-SAS Cable_ and into connector
+labeled _CSI MIPI_ (`J802`).
++
+.MINISASTOCSI Camera Daughter Card
+image::chapters/media/minisas-to-csi.png[alt=.MINISASTOCSI Camera Daughter Card, pdfwidth=35%, title-align=center, align=center]
++
+. Connect the _micro-B_ end of the supplied _USB Cable_ into _Debug UART_ port `J901`.
++
+. Connect the other end of the cable to the _host GNU/Linux PC_.
++
+. Insert the _MicroSD Card_ into the _MicroSD Card slot_ `J701` in the back board side.
+To boot the board from the _MicroSD Card_, change the _Boot Switches_ `SW1101`
+and `SW1102` (Figure 5) according to the table below:
++
+.Boot Device Setting
+[width="60%",cols="15,15,15",options="header", title-align=center, align=center]
+|=========================================================
+|BOOT Device    |SW1101     |SW1102
+|MicroSD/uSDHC2 |0110110010 |0001101000
+|=========================================================
++
+.Boot Device Settings
+image::chapters/media/boot_device_settings.png[alt=.Boot Device Settings, pdfwidth=30%, title-align=center, align=center]
++
+. Connect the _Power Supply Cable_ to the _Power Connector_ `J302` and power **on** the
+board by flipping the switch `SW101`.
+
+[TIP%autofit]
+====
+For more details see https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/i.mx-applications-processors/i.mx-8-processors/evaluation-kit-for-thebr-i.mx-8m-mini-applications-processor:8MMINILPD4-EVK?tab=In-Depth_Tab[i.MX 8M Mini EVK  Getting Started].
+====
+
+[%hardbreaks]
+
+
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
 // #############################################################################
 // #############################################################################
 // #############################################################################
@@ -27,9 +100,9 @@
 
 === GNU Cross-Platform Development Toolchain
 
-A `toolchain` is a set of tools that compiles source codes generating executable binary
+A _toolchain_ is a set of tools that compiles source codes generating executable binary
 which can run on a specific target device. It includes a _compiler_, _linker_,
-_run-time libraries_ and might also include a _debugger_. The `toolchain` must
+_run-time libraries_ and might also include a _debugger_. The _toolchain_ must
 be able to compile codes written in _Assembly_, _C_ and _C++_ since these are the
 most common languages used in the based open source packages.
 
@@ -45,8 +118,8 @@ You need root privileges (sudo) to run a few commands described in this document
 
 ==== Graphical Package Management
 
-Try to avoid this step and go direct to <<gcc_commandline>>. This section can be used
-to search and install the cross-compiler packages using a _graphical tool_.
+Avoid this step and go direct to _<<gcc_commandline>>_ if you prefer command lines.
+This section can be used to search and install the cross-compiler packages using a _graphical tool_.
 
 . Install a _Graphical Package Management_ and open it:
 +
@@ -115,7 +188,7 @@ If the shell/terminal is **closed** and starts a new one, these settings will no
 The steps for installing a NXP toolchain generated by _Yocto_ is exactly simlar
 for all releases. The daily buildings toolchain can be downloaded at:
 
-* http://yb2.am.freescale.net/build-output/[YB2 Freescale Build Output]
+* http://yb2.am.freescale.net/build-output/[_Internal YB2 Freescale Build Output_]
 
 . Open a terminal on the _host GNU/Linux PC_, then:
 +
@@ -143,9 +216,14 @@ _Host GNU/Linux PC Terminal_
 +
 [source,bash]
 ----
-$ source /opt/eee/ ....  // <1>
+$ source /opt/fsl-imx-xwayland/<version>/environment-setup-aarch64-poky-linux  // <1>
 ----
 <1> export the toolchain variables.
++
+[CAUTION%autofit]
+====
+You must replace _<version>_ to the current toolchain version.
+====
 +
 [TIP%autofit]
 ====
@@ -197,15 +275,16 @@ $ source go_arm // <1>
 ----
 <1> export the toolchain variables.
 
-
-
 <<<
 
-=== Terminal Emulators
+=== Terminal Emulator
+
+There are many serial communicators available you can use which one you prefer or
+has more familiarity.
 
 ==== Minicom
 
-. Open a terminal on the _host GNU/Linux PC_, then install the `Minicom` tool:
+. Open a terminal on the _host GNU/Linux PC_, then install the _Minicom_ tool:
 +
 _Host GNU/Linux PC Terminal_
 +
@@ -228,10 +307,10 @@ $ chmod g+rw /etc/minicom/minirc.dft
 +
 [CAUTION%autofit]
 ====
-Only use this with wisdom
+Be careful using these commands.
 ====
 +
-. Go to `serial port setup` and change the settings to:
+. Go to _**serial port setup**_ and change the settings to:
 +
 _Host GNU/Linux PC Terminal_
 +
@@ -245,7 +324,7 @@ $ minicom -s
 * Hardware Flow Control: `No`
 * Software Flow Control: `No`
 +
-. Then, choose `save setup as dfl`, then `exit`.
+. Then, choose _**save setup as dfl**_, then _**exit**_.
 +
 . Connect the serial cable to the _i.MX Board_ and to the _host GNU/Linux PC_, then:
 +
@@ -257,13 +336,70 @@ $ minicom // <1>
 ----
 <1> open `Minicom` with default settings.
 +
-. Turn the target board power switch to _on_, when it reaches the login prompt, enter: `root`.
+. Turn the target board power switch to _**on**_, when it reaches the login prompt, enter: _**root**_
 
 // #############################################################################
 // #############################################################################
 // #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
 
-== Getting Started with i.MX
+== Getting Started with NXP Linux BSP Release (4.19.35)
+
+=== NXP BSP Release
+
+You can download all the NXP Linux BSP Releases from https://www.nxp.com/design/i.mx-developer-resources/i.mx-software-and-development-tools:IMX-SW?&tid=vanIMX6TOOLS[_here_]. The BSP for _i.MX 8M Mini EVK Board_ is inside the _files_ folder located at _/opt_ directory.
+
+. Uncompress the image:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ unzip L4.19.35_1.1.0_images_MX8MMEVK.zip
+----
++
+[CAUTION]
+====
+You need root privileges (sudo) to use `dd` for writing to _**/dev/sd<x>**_.
+====
++
+[IMPORTANT]
+====
+**_<x>_** refers to the SD Card device. You can check it using `lsblk` command.
+====
++
+. Flash the image into the SD Card device:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ dd if=imx-image-full-imx8mmevk.sdcard of=/dev/sdb bs=1M status=progress && sync
+----
+
+
+
+
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+// #############################################################################
+
+== Getting Started with i.MX Softwares
+
+// #############################################################################
+// #############################################################################
+// #############################################################################
 
 === Bootloader
 
@@ -307,12 +443,23 @@ $ make
 
 ==== Flash the U-Boot to SD Card
 
-
-
-
+// #############################################################################
+// #############################################################################
+// #############################################################################
 
 === Kernel
 
+// #############################################################################
+// #############################################################################
+// #############################################################################
+
 === Root Filesystem
+
+// #############################################################################
+// #############################################################################
+// #############################################################################
+
+
+
 
 
