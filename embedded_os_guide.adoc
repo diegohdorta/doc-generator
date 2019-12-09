@@ -10,4 +10,8 @@ REV 1.0, November 27, 2019
 :numbered:
 :icons: font
 :autofit-option:
-include::chapters/1-chapter.adoc[]
+//include::chapters/1-chapter.adoc[]
+include::chapters/2-chapter.adoc[]
+include::chapters/3-chapter.adoc[]
+include::chapters/4-chapter.adoc[]
+include::chapters/5-chapter.adoc[]

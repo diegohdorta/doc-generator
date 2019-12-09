@@ -1,0 +1,61 @@
+// Copyright 2019, NXP Semiconductors
+// Author: Diego Dorta <diego.dorta@nxp.com>
+[[chapter_5]]
+:numbered:
+
+== Getting Started with i.MX Softwares
+
+=== Bootloader
+
+==== Software Requirement
+
+. Install a few dependencies first:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ apt-get install bison flex
+----
+
+==== Prepare the Environment
+
+. The cross-compiler must be exported before compiling the bootloader:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ source go_arm // <1>
+----
+<1> export the toolchain variables.
+
+==== Compile the U-Boot
+
+. Follow the steps to compile U-Boot for i.MX:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ git clone git://git.denx.de/u-boot-imx.git
+$ cd u-boot-imx/
+$ git checkout -b local_branch
+$ make <board_name>
+$ make
+----
+
+==== Flash the U-Boot to SD Card
+
+
+=== Kernel
+
+
+=== Root Filesystem
+
+
+
+
+
+
+

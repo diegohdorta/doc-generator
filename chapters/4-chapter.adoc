@@ -1,0 +1,41 @@
+// Copyright 2019, NXP Semiconductors
+// Author: Diego Dorta <diego.dorta@nxp.com>
+[[chapter_4]]
+:numbered:
+
+== Getting Started with NXP Linux BSP Release (4.19.35)
+
+=== NXP BSP Release
+
+You can download all the NXP Linux BSP Releases from https://www.nxp.com/design/i.mx-developer-resources/i.mx-software-and-development-tools:IMX-SW?&tid=vanIMX6TOOLS[_here_]. The BSP for _i.MX 8M Mini EVK Board_ is inside the _files_ folder located at _/opt_ directory.
+
+. Uncompress the image:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ unzip L4.19.35_1.1.0_images_MX8MMEVK.zip
+----
++
+[CAUTION]
+====
+You need root privileges (sudo) to use `dd` for writing to _**/dev/sd<x>**_.
+====
++
+[IMPORTANT]
+====
+**_<x>_** refers to the SD Card device. You can check it using `lsblk` command.
+====
++
+. Flash the image into the SD Card device:
++
+_Host GNU/Linux PC Terminal_
++
+[source,bash]
+----
+$ dd if=imx-image-full-imx8mmevk.sdcard of=/dev/sdb bs=1M status=progress && sync
+----
+
+
+

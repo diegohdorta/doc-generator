@@ -1,0 +1,65 @@
+// Copyright 2019, NXP Semiconductors
+// Author: Diego Dorta <diego.dorta@nxp.com>
+[[chapter_2]]
+:numbered:
+
+== Hardware Requirements
+
+=== Preparing the i.MX 8M Mini EVK Board
+
+The following section describes the steps to setup the _i.MX 8M Mini EVK Board_.
+
+.i.MX 8M Mini EVK Board Top View
+image::chapters/media/imx8mmevk_front.png[alt=.Top view i.MX 8M Mini EVK board, pdfwidth=75%, title-align=center, align=center]
+
+.i.MX 8M Mini EVK Board Back View
+image::chapters/media/imx8mmevk_back.png[alt=.Back view i.MX 8M Mini EVK board, pdfwidth=75%, title-align=center, align=center]
+
+<<<
+
+. Connect the _IMX-MIPI-HDMI Daughter Card_ to the _Mini-SAS Cable_ and into connector
+labeled _DSI MIPI_ (`J801`) and then connect the _HDMI Monitor Cable_ into it.
++
+.IMX-MIPI-HDMI Daughter Card
+image::chapters/media/imx-mipi-hdmi.png[alt=.IMX-MIPI-HDMI daughter card, pdfwidth=25%, title-align=center, align=center]
++
+. Connect the _MINISASTOCSI Camera Daughter Card_ to the _Mini-SAS Cable_ and into connector
+labeled _CSI MIPI_ (`J802`).
++
+.MINISASTOCSI Camera Daughter Card
+image::chapters/media/minisas-to-csi.png[alt=.MINISASTOCSI Camera Daughter Card, pdfwidth=35%, title-align=center, align=center]
++
+. Connect the _micro-B_ end of the supplied _USB Cable_ into _Debug UART_ port `J901`.
++
+. Connect the other end of the cable to the _host GNU/Linux PC_.
++
+. Insert the _MicroSD Card_ into the _MicroSD Card slot_ `J701` in the back board side.
+To boot the board from the _MicroSD Card_, change the _Boot Switches_ `SW1101`
+and `SW1102` (Figure 5) according to the table below:
++
+.Boot Device Setting
+[width="60%",cols="15,15,15",options="header", title-align=center, align=center]
+|=========================================================
+|BOOT Device    |SW1101     |SW1102
+|MicroSD/uSDHC2 |0110110010 |0001101000
+|=========================================================
++
+.Boot Device Settings
+image::chapters/media/boot_device_settings.png[alt=.Boot Device Settings, pdfwidth=30%, title-align=center, align=center]
++
+. Connect the _Power Supply Cable_ to the _Power Connector_ `J302` and power **on** the
+board by flipping the switch `SW101`.
+
+[TIP%autofit]
+====
+For more details see https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/i.mx-applications-processors/i.mx-8-processors/evaluation-kit-for-thebr-i.mx-8m-mini-applications-processor:8MMINILPD4-EVK?tab=In-Depth_Tab[i.MX 8M Mini EVK  Getting Started].
+====
+
+== Getting Started with NXP BSP Release
+
+colocar minicom aqui
+copiar o bsp aqui
+gravar a iamge
+
+e depois trocar o kernel compilando para 64 e 32
+
