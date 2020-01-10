@@ -1,4 +1,4 @@
-// Copyright (c) 2019, NXP Semiconductors
+// Copyright 2019-2020 NXP Semiconductors
 [[chapter]]
 :numbered:
 == Introduction
