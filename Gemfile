@@ -1,4 +1,4 @@
-# Copyright (c) 2019, NXP Semiconductors
+# Copyright 2019-2020, NXP Semiconductors
 # Gemfile to install asciidoctor PDF converter
 # https://asciidoctor.org/docs/asciidoctor-pdf/
 source 'https://rubygems.org'
